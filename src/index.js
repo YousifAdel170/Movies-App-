@@ -5,7 +5,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const basename = process.env.NODE_ENV === "development" ? "" : "/moviesphere";
+// const basename = process.env.NODE_ENV === "development" ? "" : "/moviesphere";
 root.render(
   <React.StrictMode>
     <BrowserRouter basename="">
