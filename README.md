@@ -31,6 +31,9 @@ MovieSphere is a modern React-based web application that allows users to explore
 Here’s a preview of the MovieSphere app:
 ![Home Page In Large Screens -  Dark mode and English Version](./screenshots/english%20dark%20mode%20version.PNG)
 ![Home Page In Mobile - Light mode and Arabic Version](./screenshots/arabic%20light%20mobile%20version.PNG)
+![Search ](./screenshots/search.PNG)
+![changes happens in the URL](./screenshots/data%203.PNG)
+![Pagination](./screenshots/data%204.PNG)
 
 ## Getting Started
 
