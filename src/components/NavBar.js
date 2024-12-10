@@ -29,7 +29,7 @@ const NavBar = ({
         <Row className="pt-2" style={{ position: "relative" }}>
           <Col xs="2" lg="1">
             {" "}
-            <a href="/">
+            <a href="/moviesphere">
               <img
                 className="logo"
                 src={darkModeProp ? darkLogo : logo}

@@ -1,3 +1,7 @@
+/****************************************************************************************** */
+/*                                Import                                                   */
+/****************************************************************************************** */
+
 import MoviesList from "./components/MoviesList";
 import NavBar from "./components/NavBar";
 import MovieDetails from "./components/MovieDetails";
@@ -7,6 +11,10 @@ import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
+  /****************************************************************************************** */
+  /*                                States                                                   */
+  /****************************************************************************************** */
+
   // create a state to store the movies to be rendered using (useState)
   const [movies, setMovies] = useState([]);
 
@@ -19,6 +27,9 @@ function App() {
   // create a state to store the darkmode (check if it is activated or not)
   const [darkMode, setDarkMode] = useState(false);
 
+  /****************************************************************************************** */
+  /*                                Global Variables                                          */
+  /****************************************************************************************** */
   // variable to store the  API key for themoviedb.org
   const api_key = "a579beaa78523fb5d1e557ccb383c5f9";
 
@@ -41,11 +52,15 @@ function App() {
   // console.log(searchParams);
   const page = parseInt(searchParams.get("page") || "1");
 
+  /****************************************************************************************** */
+  /*                                Functions                                                 */
+  /****************************************************************************************** */
+
   // 1. get all the data (movies) from the API using axios
   const getAllMovies = async (url) => {
     try {
       const res = await axios.get(url);
-      // console.log(res.data); // Check the API response
+      console.log(res.data); // Check the API response
       setMovies(res.data.results);
       setPageCount(res.data.total_pages);
     } catch (error) {
@@ -123,6 +138,10 @@ function App() {
   useEffect(() => {
     console.log(movies); // Check if movies data is fetched
   }, [movies]);
+
+  /****************************************************************************************** */
+  /*                                returned                                                  */
+  /****************************************************************************************** */
 
   return (
     <div className="font color-body">
