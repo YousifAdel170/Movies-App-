@@ -43,9 +43,14 @@ function App() {
 
   // 1. get all the data (movies) from the API using axios
   const getAllMovies = async (url) => {
-    const res = await axios.get(url);
-    setMovies(res.data.results);
-    setPageCount(res.data.total_pages);
+    try {
+      const res = await axios.get(url);
+      // console.log(res.data); // Check the API response
+      setMovies(res.data.results);
+      setPageCount(res.data.total_pages);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   // 2. render all the movies that got from the API at once the page opened (using useEffect)
@@ -114,6 +119,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
+
+  useEffect(() => {
+    console.log(movies); // Check if movies data is fetched
+  }, [movies]);
 
   return (
     <div className="font color-body">
