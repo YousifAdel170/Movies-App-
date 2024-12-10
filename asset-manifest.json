@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/movieshere/static/css/main.b177c27f.css",
-    "main.js": "/movieshere/static/js/main.352efc45.js",
+    "main.js": "/movieshere/static/js/main.5d40f771.js",
     "static/media/logo-dark.png": "/movieshere/static/media/logo-dark.4029585be9920803715a.png",
     "static/media/logo.png": "/movieshere/static/media/logo.04564b900006a6c75de6.png",
     "index.html": "/movieshere/index.html",
     "main.b177c27f.css.map": "/movieshere/static/css/main.b177c27f.css.map",
-    "main.352efc45.js.map": "/movieshere/static/js/main.352efc45.js.map"
+    "main.5d40f771.js.map": "/movieshere/static/js/main.5d40f771.js.map"
   },
   "entrypoints": [
     "static/css/main.b177c27f.css",
-    "static/js/main.352efc45.js"
+    "static/js/main.5d40f771.js"
   ]
 }
