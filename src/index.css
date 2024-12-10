@@ -155,7 +155,6 @@ body {
   transform: translateY(-50%);
   top: 55%;
   color: white;
-  border-color: #eee;
   border-width: 1px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -171,12 +170,14 @@ body {
 }
 .language-btn.light-mode {
   background-color: var(--main-color);
+  border-color: var(--main-color);
 }
 .language-btn.light-mode:hover {
   background-color: #0056b3;
 }
 .language-btn.dark-mode {
   background-color: var(--dark-mode-color);
+  border-color: var(--dark-mode-color);
 }
 .language-btn.dark-mode:hover {
   background-color: black;

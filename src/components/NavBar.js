@@ -77,7 +77,11 @@ const NavBar = ({
                 darkModeProp ? "dark-mode" : "light-mode"
               } `}
             >
-              {darkModeProp ? "Light" : "Dark"}
+              {darkModeProp ? (
+                <i class="fa-solid fa-moon"></i>
+              ) : (
+                <i class="fa-solid fa-sun"></i>
+              )}
             </button>
           </Col>
         </Row>

@@ -2,6 +2,10 @@
 
 MovieSphere is a modern React-based web application that allows users to explore and discover popular movies. The app fetches movie data from The Movie Database (TMDb) API and presents it in an intuitive, user-friendly interface. Users can browse through movie lists, view movie details, search for specific movies, and navigate through pages of results.
 
+## Live Demo:
+
+https://yousifadel170.github.io/moviesphere/
+
 ## Features
 
 - **Browse popular movies**: Explore trending movies fetched from TMDb.
