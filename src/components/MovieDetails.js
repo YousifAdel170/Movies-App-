@@ -62,9 +62,9 @@ const MovieDetails = ({
     <div>
       <Row className="justify-content-center">
         <Col md="12" xs="12" sm="12" className="mt-4 ">
-          <div className="card-details d-flex aling-items-center">
+          <div className="card-details d-flex aling-items-center flex-wrap-mobile">
             <img
-              className="img-movie w-30"
+              className="img-movie w-30 margin-auto-mobile"
               src={`${beginningImgProp}${movieDetails.poster_path}`}
               alt={`${movieDetails.title} Poster`}
             />
@@ -72,33 +72,33 @@ const MovieDetails = ({
               {languageProp === "ar" ? (
                 <>
                   {" "}
-                  <p className="card-text-details">
+                  <p className="card-text-details card-text-details-mobile">
                     اسم الفيلم- <span>{movieDetails.title}</span>
                   </p>
-                  <p className="card-text-details">
+                  <p className="card-text-details card-text-details-mobile">
                     تاريخ الفيلم - <span>{movieDetails.release_date}</span>
                   </p>
-                  <p className="card-text details">
-                    عدد المقيمين - {movieDetails.vote_count}
+                  <p className="card-text-details card-text-details-mobile">
+                    عدد المقيمين - <span>{movieDetails.vote_count}</span>
                   </p>
-                  <p className="card-text details">
-                    التقييم - {movieDetails.vote_average}
+                  <p className="card-text-details card-text-details-mobile">
+                    التقييم - <span>{movieDetails.vote_average}</span>
                   </p>
                 </>
               ) : (
                 <>
                   {" "}
-                  <p className="card-text-details">
+                  <p className="card-text-details card-text-details-mobile">
                     Movie Name - <span>{movieDetails.title}</span>
                   </p>
-                  <p className="card-text-details">
+                  <p className="card-text-details card-text-details-mobile">
                     Release Date - <span>{movieDetails.release_date}</span>
                   </p>
-                  <p className="card-text details">
-                    Vote Count - {movieDetails.vote_count}
+                  <p className="card-text-details card-text-details-mobile">
+                    Vote Count - <span>{movieDetails.vote_count}</span>
                   </p>
-                  <p className="card-text details">
-                    Vote Average - {movieDetails.vote_average}
+                  <p className="card-text-details card-text-details-mobile">
+                    Vote Average - <span>{movieDetails.vote_average}</span>
                   </p>
                 </>
               )}

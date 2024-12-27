@@ -19,7 +19,9 @@ function App() {
   const [movies, setMovies] = useState([]);
 
   // create a state to store the language of the page to be rendered using (useState)
-  const [language, setLanguage] = useState("ar");
+  const [language, setLanguage] = useState(
+    localStorage.getItem("language") || "ar"
+  );
 
   // create a state to store the total number of pages in the API
   const [pageCount, setPageCount] = useState(0);
@@ -44,8 +46,6 @@ function App() {
   */
   // useLocation: use Location Hook to read the number of the page from the URL (access the current URL)
   const location = useLocation();
-  // console.log(location);
-  // console.log(location.search);
 
   // URLSearchParams(location.search): to read the query parameters from the URL & extract it to get the Page number
   const searchParams = new URLSearchParams(location.search);
@@ -60,7 +60,6 @@ function App() {
   const getAllMovies = async (url) => {
     try {
       const res = await axios.get(url);
-      console.log(res.data); // Check the API response
       setMovies(res.data.results);
       setPageCount(res.data.total_pages);
     } catch (error) {
@@ -112,7 +111,6 @@ function App() {
     }
     setLanguage((lang) => {
       const newLang = lang === "ar" ? "en-US" : "ar";
-
       return newLang;
     });
   };
@@ -122,6 +120,16 @@ function App() {
     const savedMode = localStorage.getItem("darkMode");
     if (savedMode === "true") {
       setDarkMode(true);
+    }
+    const savedLanguage = localStorage.getItem("language") || "ar";
+    setLanguage(savedLanguage);
+
+    if (savedLanguage === "ar") {
+      document.documentElement.lang = "ar";
+      document.documentElement.dir = "rtl";
+    } else {
+      document.documentElement.lang = "en";
+      document.documentElement.dir = "ltr";
     }
   }, []);
 
@@ -133,11 +141,11 @@ function App() {
   // every time the darkmode changes we need to save it in the localstorage
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
-  }, [darkMode]);
+  }, [darkMode, language]);
 
   useEffect(() => {
-    console.log(movies); // Check if movies data is fetched
-  }, [movies]);
+    localStorage.setItem("language", language);
+  }, [language]);
 
   /****************************************************************************************** */
   /*                                returned                                                  */

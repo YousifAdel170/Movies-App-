@@ -26,7 +26,7 @@ const NavBar = ({
       className={`nav-style w-100 ${darkModeProp ? "dark-mode" : "light-mode"}`}
     >
       <Container>
-        <Row className="pt-2" style={{ position: "relative" }}>
+        <Row className="pt-2 " style={{ position: "relative" }}>
           <Col xs="2" lg="1">
             {" "}
             <a href="/moviesphere">
@@ -78,9 +78,9 @@ const NavBar = ({
               } `}
             >
               {darkModeProp ? (
-                <i class="fa-solid fa-moon"></i>
+                <i className="fa-solid fa-moon"></i>
               ) : (
-                <i class="fa-solid fa-sun"></i>
+                <i className="fa-solid fa-sun"></i>
               )}
             </button>
           </Col>
