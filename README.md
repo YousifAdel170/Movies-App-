@@ -1,101 +1,70 @@
-# MovieSphere
+# Getting Started with Create React App
 
-MovieSphere is a modern React-based web application that allows users to explore and discover popular movies. The app fetches movie data from The Movie Database (TMDb) API and presents it in an intuitive, user-friendly interface. Users can browse through movie lists, view movie details, search for specific movies, and navigate through pages of results. The project has been enhanced with Redux for state management, making it more efficient and scalable.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Live Demo:
+## Available Scripts
 
-https://yousifadel170.github.io/moviesphere/
+In the project directory, you can run:
 
-## Features
+### `npm start`
 
-- **Browse popular movies**: Explore trending movies fetched from TMDb.
-- **Movie search**: Search for movies by title and view results instantly.
-- **Pagination**: Easily navigate through multiple pages of movie results.
-- **Multi-language support**: Toggle between Arabic and English for both UI and content.
-- **Movie details**: View detailed information about each movie, including title, overview, rating, genres, and images.
-- **Dark mode support**: Toggle between light and dark themes to enhance user experience.
-- **Responsive design**: Optimized for mobile, tablet, and desktop views.
-- **State Management with Redux**: The app uses Redux to manage global states such as movies, pagination, language, and theme preferences efficiently.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Additional Features (Planned)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- **Favorite movies**: Allow users to mark movies as favorites and view them later.
-- **User authentication**: Implement user login and signup functionality for personalized experiences.
-- **Movie trailers**: Show trailers for movies, if available.
-- **Recommendations**: Display recommended movies based on user preferences and previous selections.
+### `npm test`
 
-## Tech Stack
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- **Frontend**: React.js
-- **Backend**: None (uses the TMDb API)
-- **State Management**: Redux
-- **Styling**: React Bootstrap, custom CSS
-- **API**: The Movie Database (TMDb) API
+### `npm run build`
 
-## Screenshots
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Here’s a preview of the MovieSphere app:
-![Home Page In Large Screens -  Light mode and English Version](./screenshots/English%20&%20light%20mode.jpg)
-![Home Page In Mobile - Dark mode and Arabic Version](./screenshots/Arabic%20&%20dark%20mode.jpg)
-![Search ](./screenshots/search.jpg)
-![changes happens in the URL & pagination](./screenshots/url%20and%20pagination.jpg)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Getting Started
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-To get started with MovieSphere, follow the steps below to clone and run the project locally:
+### `npm run eject`
 
-### Prerequisites
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-Ensure you have the following installed:
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-- **Node.js**: Download and install Node.js
-- **npm**: Comes with Node.js installation
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-#### Clone the repository
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-- git clone https://github.com/YousifAdel170/moviesphere.git
-- cd moviesphere
+## Learn More
 
-#### Install dependencies
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-Run the following command to install the necessary dependencies:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-- npm install
+### Code Splitting
 
-#### Set up the TMDb API key
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-To fetch movie data from TMDb, you'll need to sign up on TMDb and generate an API key.
+### Analyzing the Bundle Size
 
-1. Go to TMDb API and sign up if you don't have an account.
-2. Generate an API key
-3. Create a .env file in the root of your project and add the following line:
-   REACT_APP_TMDB_API_KEY=your-api-key-here
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Run the app
+### Making a Progressive Web App
 
-Now that everything is set up, start the development server:
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-- npm start
-- Visit http://localhost:3000 in your browser to see the app in action.
+### Advanced Configuration
 
-## How It Works
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-1. **Fetching Movie Data**: The app fetches movie data using the TMDb API based on the selected language and page number.
-2. **Pagination**: The app handles pagination, allowing users to navigate through multiple pages of movie results.
-3. **Search Functionality**: Users can search for specific movies by title, and the app fetches and displays the results accordingly.
-4. **Language Toggle**: The app supports toggling between Arabic and English, updating both the UI and the content based on the selected language.
-5. **Theme Toggle**: Switch between dark and light modes for a customized viewing experience. This can be achieved using a button that toggles a dark-mode class or a React context to manage the theme state.
-6. **Responsive Design**: The app is built to be fully responsive, making it easy to use on mobile, tablet, and desktop devices.
-7. **Redux**: The app is now enhanced with Redux for better state management, including handling the dark mode, language, and movie data more efficiently.
+### Deployment
 
-## Contributing
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-If you'd like to contribute to this project, feel free to fork the repository, make your changes, and create a pull request. We welcome suggestions, bug fixes, and improvements!
+### `npm run build` fails to minify
 
-## License
-
-This project is open-source.
-
-## Contact
-
-Feel free to reach out via LinkedIn or email me at ya842245@gmail.com for any questions or feedback.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
