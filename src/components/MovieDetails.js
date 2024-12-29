@@ -3,13 +3,10 @@ import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { API, beginningImg } from "../redux/types/movieTypes";
+import { useSelector } from "react-redux";
 
-const MovieDetails = ({
-  api_keyProp,
-  beginningImgProp,
-  languageProp,
-  darkModeProp,
-}) => {
+const MovieDetails = () => {
   // Initialize with null to handle conditional rendering
   const [movieDetails, setMovieDetails] = useState(null);
 
@@ -19,7 +16,8 @@ const MovieDetails = ({
   // to get the id of the movie to display its details
   const params = useParams();
 
-  // `https://api.themoviedb.org/3/movie/${params.id}?api_key=${api_keyProp}&language={language_code}`
+  const dataLanguage = useSelector((state) => state.language);
+  const dataDarkMode = useSelector((state) => state.darkMode);
 
   // render getMovieDetails function when the page rendered (once) so we will use useEffect Hook
   useEffect(() => {
@@ -27,13 +25,13 @@ const MovieDetails = ({
     const getMovieDetails = async () => {
       try {
         const res = await axios.get(
-          `https://api.themoviedb.org/3/movie/${params.id}?api_key=${api_keyProp}&language=${languageProp}`
+          `https://api.themoviedb.org/3/movie/${params.id}?api_key=${API}&language=${dataLanguage}`
         );
         setMovieDetails(res.data);
       } catch (err) {
         console.log("Error While Fetching the Details of the Movie", err);
         setError(
-          languageProp === "ar"
+          dataLanguage === "ar"
             ? "تعذر تحميل تفاصيل الفيلم. يرجى المحاولة مرة أخرى."
             : "Unable to load movie details, Please try again."
         );
@@ -41,7 +39,7 @@ const MovieDetails = ({
     };
 
     getMovieDetails();
-  }, [api_keyProp, params.id, languageProp]);
+  }, [params.id, dataLanguage]);
 
   // check if there is an error
   if (error) return <div className="text-center mt-4 text-danger">{error}</div>;
@@ -51,7 +49,7 @@ const MovieDetails = ({
     return (
       <div className="text-center mt-4">
         {" "}
-        {languageProp === "ar"
+        {dataLanguage === "ar"
           ? "جارٍ تحميل التفاصيل..."
           : "Loading details..."}
       </div>
@@ -65,11 +63,11 @@ const MovieDetails = ({
           <div className="card-details d-flex aling-items-center flex-wrap-mobile">
             <img
               className="img-movie w-30 margin-auto-mobile"
-              src={`${beginningImgProp}${movieDetails.poster_path}`}
+              src={`${beginningImg}${movieDetails.poster_path}`}
               alt={`${movieDetails.title} Poster`}
             />
             <div className="justify-content-center text-center mx-auto">
-              {languageProp === "ar" ? (
+              {dataLanguage === "ar" ? (
                 <>
                   {" "}
                   <p className="card-text-details card-text-details-mobile">
@@ -113,8 +111,8 @@ const MovieDetails = ({
           <div className="card-story d-flex flex-column align-items-start">
             {/* <div className="text-end p-4"> */}
             <div className=" p-4">
-              <p className="card-text-title">
-                {languageProp === "ar" ? "القصة" : "Story"}
+              <p className="card-text-title card-text-title-mobile">
+                {dataLanguage === "ar" ? "القصة" : "Story"}
               </p>
               <p>{movieDetails.overview}</p>
             </div>
@@ -134,24 +132,24 @@ const MovieDetails = ({
             {" "}
             <button
               className={`btn btn-primary m-2 ${
-                darkModeProp ? "dark-mode dark-hover" : "light-mode"
+                dataDarkMode ? "dark-mode dark-hover" : "light-mode"
               }`}
               style={{
                 border: "none",
               }}
             >
-              {languageProp === "ar" ? "عوده للرئيسية" : "Back To Main Page"}
+              {dataLanguage === "ar" ? "عوده للرئيسية" : "Back To Main Page"}
             </button>
           </Link>
           <a href={movieDetails.homepage}>
             {" "}
             <button
               className={`btn btn-primary m-2 ${
-                darkModeProp ? "dark-mode dark-hover" : "light-mode"
+                dataDarkMode ? "dark-mode dark-hover" : "light-mode"
               }`}
               style={{ border: "none" }}
             >
-              {languageProp === "ar" ? "مشاهدة الفيلم" : "Watch the Movie"}
+              {dataLanguage === "ar" ? "مشاهدة الفيلم" : "Watch the Movie"}
             </button>
           </a>
         </Col>

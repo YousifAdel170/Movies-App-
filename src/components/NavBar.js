@@ -1,30 +1,51 @@
 import { Col, Container, Row } from "react-bootstrap";
 import logo from "../imgs/logo.png";
 import darkLogo from "../imgs/logo-dark.png";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getAllMoviesAction,
+  searchMovieAction,
+  toggleDarkModeAction,
+  toggleLanguageAction,
+} from "../redux/actions/movieActions";
+import { useEffect, useState } from "react";
 
-const NavBar = ({
-  searchProp,
-  toggleLanguageProp,
-  languageProp,
-  darkModeProp,
-  toggleDarkModeProp,
-}) => {
-  const searchFunction = (word) => {
-    searchProp(word);
+const NavBar = () => {
+  const [language, setLanguage] = useState();
+  const [darkMode, setdarkMode] = useState();
+
+  const dispatchMovies = useDispatch();
+
+  const getSearchedWord = (word) => {
+    searchWithTheWord(word);
+  };
+
+  const searchWithTheWord = (word, page = 1) => {
+    if (word === "") {
+      dispatchMovies(getAllMoviesAction(language));
+    } else {
+      dispatchMovies(searchMovieAction(word, language, page));
+    }
   };
 
   const toggleLanguageFunction = () => {
-    toggleLanguageProp();
+    dispatchMovies(toggleLanguageAction());
   };
+  const dataLanguage = useSelector((state) => state.language);
+  useEffect(() => {
+    setLanguage(dataLanguage);
+  }, [dataLanguage]);
 
   const toggleDarkModeFunction = () => {
-    toggleDarkModeProp();
+    dispatchMovies(toggleDarkModeAction());
   };
+  const dataDarkMode = useSelector((state) => state.darkMode);
+  useEffect(() => {
+    setdarkMode(dataDarkMode);
+  }, [dataDarkMode]);
 
   return (
-    <div
-      className={`nav-style w-100 ${darkModeProp ? "dark-mode" : "light-mode"}`}
-    >
+    <div className={`nav-style w-100 ${darkMode ? "dark-mode" : "light-mode"}`}>
       <Container>
         <Row className="pt-2 " style={{ position: "relative" }}>
           <Col xs="2" lg="1">
@@ -32,7 +53,7 @@ const NavBar = ({
             <a href="/moviesphere">
               <img
                 className="logo"
-                src={darkModeProp ? darkLogo : logo}
+                src={darkMode ? darkLogo : logo}
                 alt="Logo"
               />
             </a>
@@ -40,16 +61,16 @@ const NavBar = ({
           <Col className="d-flex align-items-center" xs="6" lg="9">
             <div className="search w-100">
               <i className="fa fa-search"></i>
-              {languageProp === "ar" ? (
+              {language === "ar" ? (
                 <input
-                  onChange={(e) => searchFunction(e.target.value)}
+                  onChange={(e) => getSearchedWord(e.target.value)}
                   type="text"
                   className="form-control"
                   placeholder="ابحث"
                 />
               ) : (
                 <input
-                  onChange={(e) => searchFunction(e.target.value)}
+                  onChange={(e) => getSearchedWord(e.target.value)}
                   type="text"
                   className="form-control"
                   placeholder="Search"
@@ -63,10 +84,10 @@ const NavBar = ({
             <button
               onClick={() => toggleLanguageFunction()}
               className={`language-btn ${
-                darkModeProp ? "dark-mode" : "light-mode"
+                darkMode ? "dark-mode" : "light-mode"
               } `}
             >
-              {languageProp === "ar" ? "English" : "العربية"}
+              {language === "ar" ? "English" : "العربية"}
             </button>
           </Col>
           <Col xs="2" lg="1" className="d-flex justify-content-center">
@@ -74,10 +95,10 @@ const NavBar = ({
             <button
               onClick={() => toggleDarkModeFunction()}
               className={`language-btn ${
-                darkModeProp ? "dark-mode" : "light-mode"
+                darkMode ? "dark-mode" : "light-mode"
               } `}
             >
-              {darkModeProp ? (
+              {darkMode ? (
                 <i className="fa-solid fa-moon"></i>
               ) : (
                 <i className="fa-solid fa-sun"></i>

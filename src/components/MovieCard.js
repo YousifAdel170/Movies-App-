@@ -1,28 +1,27 @@
 import { Col } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { beginningImg } from "../redux/types/movieTypes";
 
-const MovieCard = ({
-  movieProp,
-  beginningImgProp,
-  languageProp,
-  darkModeProp,
-}) => {
+const MovieCard = ({ movieProp }) => {
+  const dataLanguage = useSelector((state) => state.language);
+  const dataDarkMode = useSelector((state) => state.darkMode);
   return (
     <Col xs="6" sm="6" md="4" lg="3" className="my-1">
       <Link to={`/movie/${movieProp.id}`}>
         <div className="card">
           <img
-            src={beginningImgProp + movieProp.poster_path}
+            src={beginningImg + movieProp.poster_path}
             alt={movieProp.title + " Poster"}
             className="card-image"
           />
           <div
             className={`card-overlay ${
-              darkModeProp ? "dark-overlay" : "ligh-overlay"
+              dataDarkMode ? "dark-overlay" : "ligh-overlay"
             }`}
           >
             <div className="overlay-text text-center w-100 p-2">
-              {languageProp === "ar" ? (
+              {dataLanguage === "ar" ? (
                 <>
                   {" "}
                   <p>اسم الفيلم: {movieProp.title}</p>

@@ -1,6 +1,6 @@
 # MovieSphere
 
-MovieSphere is a modern React-based web application that allows users to explore and discover popular movies. The app fetches movie data from The Movie Database (TMDb) API and presents it in an intuitive, user-friendly interface. Users can browse through movie lists, view movie details, search for specific movies, and navigate through pages of results.
+MovieSphere is a modern React-based web application that allows users to explore and discover popular movies. The app fetches movie data from The Movie Database (TMDb) API and presents it in an intuitive, user-friendly interface. Users can browse through movie lists, view movie details, search for specific movies, and navigate through pages of results. The project has been enhanced with Redux for state management, making it more efficient and scalable.
 
 ## Live Demo:
 
@@ -15,6 +15,7 @@ https://yousifadel170.github.io/moviesphere/
 - **Movie details**: View detailed information about each movie, including title, overview, rating, genres, and images.
 - **Dark mode support**: Toggle between light and dark themes to enhance user experience.
 - **Responsive design**: Optimized for mobile, tablet, and desktop views.
+- **State Management with Redux**: The app uses Redux to manage global states such as movies, pagination, language, and theme preferences efficiently.
 
 ## Additional Features (Planned)
 
@@ -27,6 +28,7 @@ https://yousifadel170.github.io/moviesphere/
 
 - **Frontend**: React.js
 - **Backend**: None (uses the TMDb API)
+- **State Management**: Redux
 - **Styling**: React Bootstrap, custom CSS
 - **API**: The Movie Database (TMDb) API
 
@@ -84,6 +86,7 @@ Now that everything is set up, start the development server:
 4. **Language Toggle**: The app supports toggling between Arabic and English, updating both the UI and the content based on the selected language.
 5. **Theme Toggle**: Switch between dark and light modes for a customized viewing experience. This can be achieved using a button that toggles a dark-mode class or a React context to manage the theme state.
 6. **Responsive Design**: The app is built to be fully responsive, making it easy to use on mobile, tablet, and desktop devices.
+7. **Redux**: The app is now enhanced with Redux for better state management, including handling the dark mode, language, and movie data more efficiently.
 
 ## Contributing
 
